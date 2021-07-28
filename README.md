@@ -1,8 +1,20 @@
 # compact_tree
 A linear tree structure with focus on low memory usage.
-```
-Program output:
 
+Instead of storing absolute or relative pointers, only depth values are stored in a separate array from the payload. This enables moving the sub trees around and only the moved depths need to be adjusted.
+
+## structure
+The structure is simple and inherently more cache friendly than typical pointer tree structures.
+```cpp
+struct compact_tree
+{
+  vector<uint8_t> depths;
+  vector<item> items;
+};
+```
+
+## Program output
+```
 >root
  +-1
  | +-2
